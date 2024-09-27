@@ -27,7 +27,6 @@ public class Joueur {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le nom du joueur : ");
         String nom = scanner.nextLine();
-        scanner.close();
         return new Joueur(nom);
     }
 
