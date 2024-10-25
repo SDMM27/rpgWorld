@@ -53,7 +53,6 @@ public class Main {
             seDeplacer();
         } else if (choix == 5) {
             quitter();
-            // Ajoute un `System.exit(0)` pour sortir de la boucle infinie
             System.exit(0);
         }
     }
