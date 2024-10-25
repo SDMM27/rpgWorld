@@ -27,9 +27,18 @@ public abstract class Joueur  {
 
     public Joueur createPlayer() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez le nom du joueur : ");
-        String nom = scanner.nextLine();
-        this.nom = nom;
+
+        while (true) {
+            System.out.println("Entrez le nom du joueur (maximum 10 caractères) : ");
+            String nom = scanner.nextLine();
+
+            if (nom.length() <= 10 && !nom.isEmpty()) {
+                this.nom = nom;
+                break;
+            } else {
+                System.out.println("Le nom est trop long, il doit contenir au minimum 1 caractère et  maximum 10 caractères. Essayez à nouveau.");
+            }
+        }
         return this;
     }
 
