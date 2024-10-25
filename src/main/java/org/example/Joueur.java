@@ -1,15 +1,17 @@
 package org.example;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 
-public class Joueur {
+public abstract class Joueur  {
 
     private String nom;
     private int force, defense, sante, mana;
     private Map<Objet, Integer> inventaire = new HashMap<>();
+
 
     public Joueur(String nom, int force, int defense, int sante, int mana) {
         this.nom = nom;
@@ -27,8 +29,27 @@ public class Joueur {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entrez le nom du joueur : ");
         String nom = scanner.nextLine();
-        return new Joueur(nom);
+        this.nom = nom;
+        return this;
     }
+
+    public String getNom() {
+        return nom;
+    }
+    public int getForce() {
+        return force;
+    }
+    public int getDefense() {
+        return defense;
+    }
+    public int getSante() {
+        return sante;
+    }
+    public int getMana() {
+        return mana;
+    }
+
+
 
 
 }

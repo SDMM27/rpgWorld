@@ -4,9 +4,31 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Joueur joueur = new Joueur("joueur",1,1,1,1);
-        joueur.createPlayer();
-        // gererDonjon();
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choisissez votre classe : ");
+        System.out.println("1: Guerrier\n2: Mage\n3: Voleur");
+
+        int choix = scanner.nextInt();
+        Joueur joueur = null;
+
+        if (choix == 1){
+            joueur = new Guerrier("joueur1");
+            joueur.createPlayer();
+        } else if (choix == 2){
+            joueur = new Mage("joueur1");
+            joueur.createPlayer();
+        } else if (choix == 3) {
+            joueur = new Voleur("joueur1");
+            joueur.createPlayer();
+        }
+
+        System.out.println("Bienvenue " + joueur.getNom() + " !" + " Voici vos caractéristiques : ");
+        System.out.println("Force : " + joueur.getForce());
+        System.out.println("Défense : " + joueur.getDefense());
+        System.out.println("Santé : " + joueur.getSante());
+        System.out.println("Mana : " + joueur.getMana());
+
         for (int i = 1; true;) {
             menu();
         }
