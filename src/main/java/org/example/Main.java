@@ -99,10 +99,4 @@ public class Main {
     public static void quitter() {
         System.out.println("Au revoir");
     }
-
-    public static void sauvegarderPartie(Joueur joueur, Donjon donjon) {
-        SaveLoadManager saveLoadManager = new SaveLoadManager();
-        saveLoadManager.sauvegarderPartie(joueur, donjon);
-    }
-
 }
