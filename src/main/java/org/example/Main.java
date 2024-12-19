@@ -75,18 +75,11 @@ public class Main {
         String resultat = deplacementService.deplacerDansSalle(joueur, donjon, direction); // Passe le joueur
         System.out.println(resultat);
 
-        // Afficher la salle actuelle
-        Salle salleActuelle = donjon.getSalle(joueur.getSalleX(), joueur.getSalleY());
-        if (salleActuelle != null) {
-            salleActuelle.afficherSalle(joueur.getPositionX(), joueur.getPositionY());
-        }
-
-        // Afficher le donjon
-        donjon.afficherDonjon(joueur.getSalleX(), joueur.getSalleY());
     }
 
 
     public static void menu() {
+        afficherEtat();
         System.out.println("1: Attaquer");
         System.out.println("2: Récolter");
         System.out.println("3: Afficher inventaire");
@@ -153,6 +146,18 @@ public class Main {
             System.out.println("Aucune partie sauvegardée n'a été trouvée ou une erreur est survenue.");
         }
     }
+
+    public static void afficherEtat() {
+
+        Salle salleActuelle = donjon.getSalle(joueur.getSalleX(), joueur.getSalleY());
+        if (salleActuelle != null) {
+            salleActuelle.afficherSalle(joueur.getPositionX(), joueur.getPositionY());
+        }
+
+
+        donjon.afficherDonjon(joueur.getSalleX(), joueur.getSalleY());
+    }
+
 
 
 
