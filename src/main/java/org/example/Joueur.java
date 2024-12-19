@@ -11,6 +11,11 @@ public abstract class Joueur  {
     private String nom;
     private int force, defense, sante, mana;
     private Map<Objet, Integer> inventaire = new HashMap<>();
+    private int positionX = 0;
+    private int positionY = 0;
+    private int salleX = 0;
+    private int salleY = 0;
+
 
 
     public Joueur(String nom, int force, int defense, int sante, int mana) {
@@ -56,6 +61,45 @@ public abstract class Joueur  {
     }
     public int getMana() {
         return mana;
+    }
+
+    // Getters et setters
+    public int getPositionX() {
+        return positionX;
+    }
+
+    public void setPositionX(int positionX) {
+        this.positionX = positionX;
+    }
+
+    public int getPositionY() {
+        return positionY;
+    }
+
+    public void setPositionY(int positionY) {
+        this.positionY = positionY;
+    }
+
+
+    // Getters et setters
+    public int getSalleX() {
+        return salleX;
+    }
+
+    public void setSalleX(int salleX) {
+        this.salleX = salleX;
+    }
+
+    public int getSalleY() {
+        return salleY;
+    }
+
+    public void setSalleY(int salleY) {
+        this.salleY = salleY;
+    }
+
+    public void setSante(int sante) {
+        this.sante = sante;
     }
 
 

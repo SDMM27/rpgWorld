@@ -3,19 +3,20 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    private static Joueur joueur; // Variable globale pour le joueur
 
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Choisissez votre classe : ");
         System.out.println("1: Guerrier\n2: Mage\n3: Voleur");
 
         int choix = scanner.nextInt();
-        Joueur joueur = null;
+        scanner.nextLine(); // Consommer la ligne restante
 
-        if (choix == 1){
+        if (choix == 1) {
             joueur = new Guerrier("joueur1");
             joueur.createPlayer();
-        } else if (choix == 2){
+        } else if (choix == 2) {
             joueur = new Mage("joueur1");
             joueur.createPlayer();
         } else if (choix == 3) {
@@ -29,10 +30,31 @@ public class Main {
         System.out.println("Santé : " + joueur.getSante());
         System.out.println("Mana : " + joueur.getMana());
 
-        for (int i = 1; true;) {
+        while (true) {
             menu();
         }
     }
+
+    public static void seDeplacer() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Dans quelle direction voulez-vous aller ? (N, S, E, O)");
+        String direction = scanner.nextLine();
+
+        Donjon donjon = new Donjon(5, 5); // Donjon 5x5
+        DeplacementService deplacementService = new DeplacementService(5, 5);
+        String resultat = deplacementService.deplacerDansSalle(joueur, donjon, direction); // Passe le joueur
+        System.out.println(resultat);
+
+        // Afficher la salle actuelle
+        Salle salleActuelle = donjon.getSalle(joueur.getSalleX(), joueur.getSalleY());
+        if (salleActuelle != null) {
+            salleActuelle.afficherSalle(joueur.getPositionX(), joueur.getPositionY());
+        }
+
+        // Afficher le donjon
+        donjon.afficherDonjon(joueur.getSalleX(), joueur.getSalleY());
+    }
+
 
     public static void menu() {
         System.out.println("1: Attaquer");
@@ -40,6 +62,7 @@ public class Main {
         System.out.println("3: Afficher inventaire");
         System.out.println("4: Se déplacer");
         System.out.println("5: Quitter");
+
         Scanner scanner = new Scanner(System.in);
         int choix = scanner.nextInt();
 
@@ -50,7 +73,7 @@ public class Main {
         } else if (choix == 3) {
             afficherInventaire();
         } else if (choix == 4) {
-            seDeplacer();
+            seDeplacer(); // Appel de la méthode seDeplacer
         } else if (choix == 5) {
             quitter();
             System.exit(0);
@@ -58,8 +81,12 @@ public class Main {
     }
 
     public static void attaquer() {
-        System.out.println("Attaque");
+        Monstre monstre = new Monstre(50, 8, 5); // Exemple de monstre
+        CombatService combatService = new CombatService();
+        String resultatCombat = combatService.engagerCombat(joueur, monstre);
+        System.out.println(resultatCombat);
     }
+
 
     public static void recolter() {
         System.out.println("Récolte");
@@ -67,10 +94,6 @@ public class Main {
 
     public static void afficherInventaire() {
         System.out.println("Inventaire");
-    }
-
-    public static void seDeplacer() {
-        System.out.println("Déplacement");
     }
 
     public static void quitter() {
