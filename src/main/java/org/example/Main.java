@@ -73,7 +73,7 @@ public class Main {
         } else if (choix == 3) {
             afficherInventaire();
         } else if (choix == 4) {
-            seDeplacer(); // Appel de la méthode seDeplacer
+            seDeplacer();
         } else if (choix == 5) {
             quitter();
             System.exit(0);
@@ -81,7 +81,7 @@ public class Main {
     }
 
     public static void attaquer() {
-        Monstre monstre = new Monstre(50, 8, 5); // Exemple de monstre
+        Monstre monstre = new Monstre(50, 8, 5);
         CombatService combatService = new CombatService();
         String resultatCombat = combatService.engagerCombat(joueur, monstre);
         System.out.println(resultatCombat);
@@ -99,4 +99,10 @@ public class Main {
     public static void quitter() {
         System.out.println("Au revoir");
     }
+
+    public static void sauvegarderPartie(Joueur joueur, Donjon donjon) {
+        SaveLoadManager saveLoadManager = new SaveLoadManager();
+        saveLoadManager.sauvegarderPartie(joueur, donjon);
+    }
+
 }
