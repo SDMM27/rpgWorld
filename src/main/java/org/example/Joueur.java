@@ -10,6 +10,7 @@ public abstract class Joueur  {
 
     private String nom;
     private int force, defense, sante, mana;
+    private String type;
     private Map<Objet, Integer> inventaire = new HashMap<>();
     private int positionX = 0;
     private int positionY = 0;
@@ -102,6 +103,12 @@ public abstract class Joueur  {
         this.sante = sante;
     }
 
+    public String getType() {
+        if (type == null || type.isEmpty()) {
+            this.type = this.getClass().getSimpleName();
+        }
+        return type;
+    }
 
 
 
