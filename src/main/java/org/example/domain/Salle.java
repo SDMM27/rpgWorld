@@ -1,4 +1,4 @@
-package org.example;
+package org.example.domain;
 
 public class Salle {
     private final int largeur;
@@ -23,15 +23,14 @@ public class Salle {
         return nom;
     }
 
-    // Méthode pour afficher la salle
     public void afficherSalle(int joueurX, int joueurY) {
         System.out.println("Salle : " + nom);
         for (int y = 0; y < hauteur; y++) {
             for (int x = 0; x < largeur; x++) {
                 if (x == joueurX && y == joueurY) {
-                    System.out.print("P "); // Position du joueur
+                    System.out.print("P ");
                 } else {
-                    System.out.print(". "); // Case vide
+                    System.out.print(". ");
                 }
             }
             System.out.println();

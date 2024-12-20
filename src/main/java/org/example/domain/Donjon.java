@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.domain;
 
 public class Donjon {
     private final Salle[][] salles;
@@ -24,7 +24,7 @@ public class Donjon {
         if (x >= 0 && x < largeur && y >= 0 && y < hauteur) {
             return salles[x][y];
         }
-        return null; // Pas de salle (hors limites du donjon)
+        return null;
     }
 
     public void afficherDonjon(int salleX, int salleY) {
@@ -32,9 +32,9 @@ public class Donjon {
         for (int y = 0; y < hauteur; y++) {
             for (int x = 0; x < largeur; x++) {
                 if (x == salleX && y == salleY) {
-                    System.out.print("[P] "); // Salle où se trouve le joueur
+                    System.out.print("[P] ");
                 } else {
-                    System.out.print("[ ] "); // Salle vide
+                    System.out.print("[ ] ");
                 }
             }
             System.out.println();

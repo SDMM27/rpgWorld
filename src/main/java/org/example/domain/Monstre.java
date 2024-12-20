@@ -1,4 +1,4 @@
-package org.example.model;
+package org.example.domain;
 
 public class Monstre {
     private int sante;
@@ -15,8 +15,8 @@ public class Monstre {
         return sante;
     }
 
-    public void setSante(int sante) {
-        this.sante = sante;
+    public void prendreDegats(int degats) {
+        this.sante = Math.max(0, this.sante - degats);
     }
 
     public int getForce() {
