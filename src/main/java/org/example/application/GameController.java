@@ -1,6 +1,7 @@
 package org.example.application;
 
 import org.example.domain.models.*;
+import org.example.domain.factories.JoueurFactory;
 import org.example.domain.services.CombatService;
 import org.example.domain.services.DeplacementService;
 import org.example.infrastructure.persistence.SaveLoadManager;
@@ -73,13 +74,7 @@ public class GameController {
 
         int choix = inputValidator.lireEntier(1, 3);
 
-        if (choix == 1) {
-            joueur = new Guerrier("Guerrier");
-        } else if (choix == 2) {
-            joueur = new Mage("Mage");
-        } else {
-            joueur = new Voleur("Voleur");
-        }
+        joueur = JoueurFactory.creerJoueur(choix);
 
         joueur.createPlayer();
     }
