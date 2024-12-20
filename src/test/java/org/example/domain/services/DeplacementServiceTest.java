@@ -38,6 +38,6 @@ class DeplacementServiceTest {
 
         String resultat = deplacementService.deplacerDansSalle(joueur, donjon, "N");
         assertEquals("Vous ne pouvez pas sortir des limites du donjon.", resultat);
-        assertEquals(0, joueur.getPositionY()); // Vérifie que la position n'a pas changé
+        assertEquals(0, joueur.getPositionY());
     }
 }

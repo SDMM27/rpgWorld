@@ -88,7 +88,6 @@ public class GameController {
         Monstre monstre = new Monstre(50, 8, 5, "Gobelin"); // Exemple de monstre
         System.out.println(joueur.getNom() + " attaque " + monstre.getNom() + ".");
 
-        // Calcul des dégâts infligés par le joueur
         int degatsJoueur = Math.max(joueur.getForce() - monstre.getDefense(), 0);
         monstre.setSante(monstre.getSante() - degatsJoueur);
         System.out.println(joueur.getNom() + " inflige " + degatsJoueur + " dégâts à " + monstre.getNom() + ".");
@@ -96,7 +95,6 @@ public class GameController {
         if (monstre.getSante() <= 0) {
             System.out.println(monstre.getNom() + " est vaincu !");
         } else {
-            // Calcul des dégâts infligés par le monstre
             int degatsMonstre = Math.max(monstre.getForce() - joueur.getDefense(), 0);
             joueur.setSante(joueur.getSante() - degatsMonstre);
             System.out.println(monstre.getNom() + " contre-attaque et inflige " + degatsMonstre + " dégâts à " + joueur.getNom() + ".");

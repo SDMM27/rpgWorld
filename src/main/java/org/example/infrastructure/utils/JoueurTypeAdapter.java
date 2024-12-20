@@ -13,7 +13,7 @@ public class JoueurTypeAdapter implements JsonDeserializer<Joueur>, JsonSerializ
     @Override
     public JsonElement serialize(Joueur joueur, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = context.serialize(joueur).getAsJsonObject();
-        jsonObject.addProperty("type", joueur.getType()); // Ajoute explicitement le champ "type"
+        jsonObject.addProperty("type", joueur.getType());
         return jsonObject;
     }
 
@@ -21,7 +21,7 @@ public class JoueurTypeAdapter implements JsonDeserializer<Joueur>, JsonSerializ
     public Joueur deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
 
-        if (!jsonObject.has("type")) { // Vérifie si le champ "type" est présent
+        if (!jsonObject.has("type")) {
             throw new JsonParseException("Le champ 'type' est manquant dans le JSON !");
         }
 

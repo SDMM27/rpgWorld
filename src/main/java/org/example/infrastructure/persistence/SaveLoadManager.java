@@ -16,7 +16,7 @@ public class SaveLoadManager {
 
     public SaveLoadManager() {
         this.gson = new GsonBuilder()
-                .registerTypeAdapter(Joueur.class, new JoueurTypeAdapter()) // Enregistre l'adaptateur
+                .registerTypeAdapter(Joueur.class, new JoueurTypeAdapter())
                 .setPrettyPrinting() // Format JSON lisible
                 .create();
     }

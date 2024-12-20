@@ -18,7 +18,7 @@ public abstract class Joueur {
         this.defense = defense;
         this.sante = sante;
         this.mana = mana;
-        this.type = this.getClass().getSimpleName(); // Définit automatiquement le type
+        this.type = this.getClass().getSimpleName();
     }
 
 

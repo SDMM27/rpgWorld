@@ -13,6 +13,6 @@ public class GameRunner {
     }
 
     public void run() {
-        gameController.startGame(); // Lancer le jeu
+        gameController.startGame();
     }
 }
