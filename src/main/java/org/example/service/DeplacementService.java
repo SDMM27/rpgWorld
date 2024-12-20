@@ -1,4 +1,7 @@
-package org.example;
+package org.example.service;
+
+import org.example.model.Donjon;
+import org.example.model.Joueur;
 
 public class DeplacementService {
     private final int largeurGrille;

@@ -1,4 +1,7 @@
-package org.example;
+package org.example.service;
+
+import org.example.model.Joueur;
+import org.example.model.Monstre;
 
 import java.util.Random;
 
