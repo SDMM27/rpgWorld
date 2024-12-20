@@ -1,7 +1,10 @@
-package org.example;
+package org.example.infrastructure.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.example.domain.models.Donjon;
+import org.example.domain.models.Joueur;
+import org.example.infrastructure.utils.JoueurTypeAdapter;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -18,7 +21,7 @@ public class SaveLoadManager {
                 .create();
     }
 
-    // Sauvegarder les données
+
     public void sauvegarderPartie(Joueur joueur, Donjon donjon) {
         try (FileWriter writer = new FileWriter(SAVE_FILE)) {
             PartieData data = new PartieData(joueur, donjon);
@@ -29,7 +32,7 @@ public class SaveLoadManager {
         }
     }
 
-    // Charger les données
+
     public PartieData chargerPartie() {
         try (FileReader reader = new FileReader(SAVE_FILE)) {
             return gson.fromJson(reader, PartieData.class);
@@ -39,7 +42,7 @@ public class SaveLoadManager {
         }
     }
 
-    // Classe interne pour stocker les données
+
     public static class PartieData {
         public Joueur joueur;
         public Donjon donjon;
@@ -50,4 +53,3 @@ public class SaveLoadManager {
         }
     }
 }
-

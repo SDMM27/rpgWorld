@@ -1,6 +1,10 @@
-package org.example;
+package org.example.infrastructure.utils;
 
 import com.google.gson.*;
+import org.example.domain.models.Guerrier;
+import org.example.domain.models.Joueur;
+import org.example.domain.models.Mage;
+import org.example.domain.models.Voleur;
 
 import java.lang.reflect.Type;
 
@@ -9,20 +13,20 @@ public class JoueurTypeAdapter implements JsonDeserializer<Joueur>, JsonSerializ
     @Override
     public JsonElement serialize(Joueur joueur, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject jsonObject = context.serialize(joueur).getAsJsonObject();
-        jsonObject.addProperty("type", joueur.getType());
+        jsonObject.addProperty("type", joueur.getType()); // Ajoute explicitement le champ "type"
         return jsonObject;
     }
-
 
     @Override
     public Joueur deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObject = json.getAsJsonObject();
 
-        if (!jsonObject.has("type")) {
+        if (!jsonObject.has("type")) { // Vérifie si le champ "type" est présent
             throw new JsonParseException("Le champ 'type' est manquant dans le JSON !");
         }
 
         String type = jsonObject.get("type").getAsString();
+
 
         switch (type) {
             case "Guerrier":
@@ -35,5 +39,4 @@ public class JoueurTypeAdapter implements JsonDeserializer<Joueur>, JsonSerializ
                 throw new JsonParseException("Type inconnu : " + type);
         }
     }
-
 }
