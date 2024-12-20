@@ -85,12 +85,10 @@ public abstract class Joueur {
         this.salleY = salleY;
     }
 
-    // Getter pour le type du joueur
     public String getType() {
         return type;
     }
 
-    // Méthode pour créer un joueur (par exemple pour affichage)
     public void createPlayer() {
         System.out.println("Création du personnage " + nom);
     }
