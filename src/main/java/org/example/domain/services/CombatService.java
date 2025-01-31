@@ -3,12 +3,11 @@ package org.example.domain.services;
 import org.example.domain.models.Joueur;
 import org.example.domain.models.Monstre;
 
-import java.util.Random;
 
 public class CombatService {
 
     public String engagerCombat(Joueur joueur, Monstre monstre) {
-        Random random = new Random();
+        
 
         while (joueur.getSante() > 0 && monstre.getSante() > 0) {
 
