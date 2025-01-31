@@ -12,7 +12,7 @@ public class Donjon {
         genererSalles();
     }
 
-    private void genererSalles() {
+    public void genererSalles() {
         for (int x = 0; x < largeur; x++) {
             for (int y = 0; y < hauteur; y++) {
                 salles[x][y] = new Salle(5, 5, "Salle (" + x + ", " + y + ")");
